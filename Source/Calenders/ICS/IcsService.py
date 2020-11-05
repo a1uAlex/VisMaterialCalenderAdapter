@@ -1,7 +1,6 @@
 import requests
-from ics import Calendar, Event
-from Event import Event as MyEvent
-import arrow
+from ics import Calendar
+from Model.Event import Event as MyEvent
 import datetime
 
 class IcsService:

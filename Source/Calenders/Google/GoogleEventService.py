@@ -1,6 +1,5 @@
-import json
-from CalenderService import CalenderService
-from Event import Event
+from Calenders.Google.GoogleService import CalenderService
+from Model.Event import Event
 
 class EventService:
 

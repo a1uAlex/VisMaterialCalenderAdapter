@@ -8,13 +8,13 @@ class CalenderService:
 
     def __init__(self):
         self.SCOPES = ['https://www.googleapis.com/auth/calendar']
-        self.CREDENTIALS_FILE = 'credentials.json'
+        self.CREDENTIALS_FILE = '../Ressources/credentials.json'
 
     def get_calendar_service(self):
        creds = None
 
-       if os.path.exists('token.pickle'):
-           with open('token.pickle', 'rb') as token:
+       if os.path.exists('../Ressources/token.pickle'):
+           with open('../Ressources/token.pickle', 'rb') as token:
                creds = pickle.load(token)
 
        if not creds or not creds.valid:
@@ -25,7 +25,7 @@ class CalenderService:
                    self.CREDENTIALS_FILE, self.SCOPES)
                creds = flow.run_local_server(port=0)
 
-           with open('token.pickle', 'wb') as token:
+           with open('../Ressources/token.pickle', 'wb') as token:
                pickle.dump(creds, token)
 
        service = build('calendar', 'v3', credentials=creds)
